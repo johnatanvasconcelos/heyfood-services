@@ -1,5 +1,6 @@
 package br.com.heyfood.pagamentos.controller;
 
+import br.com.heyfood.pagamentos.dto.AtualizarPagamentoDto;
 import br.com.heyfood.pagamentos.dto.PagamentoDto;
 import br.com.heyfood.pagamentos.service.PagamentoService;
 import jakarta.validation.Valid;
@@ -41,7 +42,7 @@ public class PagamentoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PagamentoDto> atualizar(@PathVariable @NotNull Long id, @RequestBody @Valid PagamentoDto dto) {
+    public ResponseEntity<PagamentoDto> atualizar(@PathVariable @NotNull Long id, @RequestBody @Valid AtualizarPagamentoDto dto) {
         PagamentoDto atualizado = service.atualizarPagamento(id, dto);
         return ResponseEntity.ok(atualizado);
     }
